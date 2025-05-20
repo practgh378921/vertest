@@ -30,9 +30,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm ci
-      - run: npm run build:ga
-
       - name: Get latest 5 commits
         run: git log -5 --date=iso --pretty=format:'%ad%n%s%n%b' > ./dist/commits.txt
 
@@ -41,8 +38,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          destination_dir: ./dist
+          publish_dir: readme.md
           #commit_message: ${{ github.event.head_commit.message }}
           commit_message: ${{ github.ref_name }}
 
