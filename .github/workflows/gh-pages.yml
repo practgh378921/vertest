@@ -13,14 +13,20 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
+    
       - uses: actions/checkout@v4
         with:
           fetch-depth: 5
+
+      - name: 環境変数の表示例
+        run: "echo \"Hello, ${{ github.ref }}! This is your custom message.\""
+        
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          
 
 #      - name: Cache dependencies
 #        uses: actions/cache@v4
@@ -35,6 +41,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
+        
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
