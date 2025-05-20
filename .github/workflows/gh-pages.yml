@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Get latest 5 commits
-        run: git log -5 --date=iso --pretty=format:'%ad%n%s%n%b' > ./dist/commits.txt
+        run: git log -5 --date=iso --pretty=format:'%ad%n%s%n%b' > commits.txt
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
