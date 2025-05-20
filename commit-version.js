@@ -13,7 +13,7 @@ let vtxt = `v${Ver.major}.${Ver.minor}.${Ver.build}${Ver.tag}`;
 await git.add('.');
 
 // count up
-if( !/NoIncrease|NoCountUp/i.test(args[0]) ) {
+if( !/NoIncrease|NoCount/i.test(args[0]) ) {
   Ver.build++;
   vtxt = `v${Ver.major}.${Ver.minor}.${Ver.build}${Ver.tag}`;
   await writeFile( path, JSON.stringify(Ver, null, '  ') );
