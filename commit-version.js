@@ -20,7 +20,7 @@ if( !/NoIncrease|NoCount/i.test(args[0]) ) {
   await git.add(path).commit(vtxt);
   
   // place version file in ./public
-  await writeFile('version_', vtxt);
+  await writeFile('./hoge/version_', vtxt);
 }
 
 
