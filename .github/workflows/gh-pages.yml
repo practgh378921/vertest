@@ -38,7 +38,9 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: readme.md
+          publish_dir: |
+            readme.md
+            version.json
           #commit_message: ${{ github.event.head_commit.message }}
           commit_message: ${{ github.ref_name }}
 
